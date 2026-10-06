@@ -2,8 +2,10 @@
   "name": "surprise-for-esha",
   "version": "1.0.0",
   "description": "Romantic Birthday Surprise Website",
+  "main": "index.js",
   "scripts": {
-    "build": "echo 'Build complete'"
+    "build": "echo 'Build complete'",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
