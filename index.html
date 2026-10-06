@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Esha ❤️ | A Special Journey</title>
+  <meta name="description"
+    content="A special birthday surprise website for Esha, filled with cherished memories, heartfelt letters, and interactive surprises.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Sacramento&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Background Ambient Glow & Starry Canvas -->
+  <canvas id="star-canvas"></canvas>
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Interactive Heart Trail Canvas -->
+  <canvas id="heart-trail-canvas"></canvas>
+
+  <!-- Top Floating Controls: Clean Progress Indicator -->
+  <header class="top-nav">
+    <div class="scene-stepper" id="scene-stepper">
+      <button class="step-dot active" data-step="1" title="Welcome"></button>
+      <button class="step-dot" data-step="2" title="Memories"></button>
+      <button class="step-dot" data-step="3" title="Love Note"></button>
+      <button class="step-dot" data-step="4" title="Why You're Special"></button>
+      <button class="step-dot" data-step="5" title="Birthday Wishes"></button>
+      <button class="step-dot" data-step="6" title="Secret Surprise"></button>
+    </div>
+  </header>
+
+  <!-- MAIN SCENE CONTAINER -->
+  <main class="main-container">
+
+    <!-- ==================== SCENE 1: WELCOME SCREEN ==================== -->
+    <section class="scene-section active" id="scene-1">
+      <div class="scene-content split-layout">
+        <!-- Left Glassmorphism Card -->
+        <div class="glass-card welcome-card animate-slide-right">
+          <div class="card-sparkle">✨</div>
+          <h1 class="script-title text-glow">
+            <span id="welcome-typing-text">Happy Birthday Jaan</span>
+            <span class="typing-cursor">|</span>
+          </h1>
+          <div class="card-desc welcome-poem">
+            <p>Finally… the day has arrived. ❤️</p>
+            <p>Your special day<br>but somehow it feels special to me too.</p>
+            <p>Because on this day<br>the world was blessed with someone<br>who would one day become<br>my favorite
+              person.</p>
+          </div>
+          <div class="card-action">
+            <button class="pill-btn primary-btn glow-pulse" id="btn-to-scene-2">
+              <span>Open Memories ✨</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Visual Anime Illustration (Animated Romantic Story) -->
+        <div class="visual-card hero-visual animate-slide-left">
+          <div class="image-frame glow-border float-anim hero-animated-frame" id="hero-animated-frame">
+            <!-- Story Layers: Girl standing -> Boy approaches -> Warm back hug -->
+            <div class="hug-layers-wrapper">
+              <img src="assets/hug_frame_1.jpg" alt="Girl waiting quietly by the window"
+                class="hug-frame frame-1 active" id="hug-f1">
+              <img src="assets/hug_frame_2.jpg" alt="Boy approaching from behind" class="hug-frame frame-2" id="hug-f2">
+              <img src="assets/hug_frame_3.jpg" alt="Boy giving warm romantic back hug" class="hug-frame frame-3"
+                id="hug-f3">
+            </div>
+
+            <!-- Dynamic Floating Hearts on Embrace -->
+            <div class="hug-hearts-container" id="hug-hearts-container"></div>
+
+            <div class="image-overlay-glow"></div>
+            <div class="corner-heart top-left">💖</div>
+            <div class="corner-heart bottom-right">✨</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SCENE 2: MEMORIES GALLERY ==================== -->
+    <section class="scene-section" id="scene-2">
+      <div class="scene-content split-layout gallery-layout">
+        <!-- Left 6-Photo Grid -->
+        <div class="memories-grid-wrapper animate-slide-right">
+          <div class="photo-grid" id="memories-grid">
+            <div class="photo-card" data-index="0" title="Click to view">
+              <img src="assets/memory_1.jpg" alt="Sitting in flower garden" loading="lazy">
+              <div class="photo-hover-tag">Garden of Us 🌸</div>
+            </div>
+            <div class="photo-card" data-index="1" title="Click to view">
+              <img src="assets/memory_2.jpg" alt="Sunflower field embrace" loading="lazy">
+              <div class="photo-hover-tag">Golden Sunflowers 🌻</div>
+            </div>
+            <div class="photo-card" data-index="2" title="Click to view">
+              <img src="assets/memory_3.jpg" alt="Balcony overlooking the city" loading="lazy">
+              <div class="photo-hover-tag">Sunny Balcony ☕</div>
+            </div>
+            <div class="photo-card" data-index="3" title="Click to view">
+              <img src="assets/memory_4.jpg" alt="Reading book under tree" loading="lazy">
+              <div class="photo-hover-tag">Peaceful Stories 📖</div>
+            </div>
+            <div class="photo-card" data-index="4" title="Click to view">
+              <img src="assets/memory_5.jpg" alt="Lying on green grass looking up" loading="lazy">
+              <div class="photo-hover-tag">Dreaming Together ☁️</div>
+            </div>
+            <div class="photo-card" data-index="5" title="Click to view">
+              <img src="assets/memory_6.jpg" alt="Festival sparklers at night" loading="lazy">
+              <div class="photo-hover-tag">Starlight Sparkles ✨</div>
+            </div>
+          </div>
+          <div class="photo-hint">💡 Tap any photo to enlarge</div>
+        </div>
+
+        <!-- Right Side Glass Card -->
+        <div class="glass-card memories-info-card animate-slide-left">
+          <div class="card-sparkle">🌸</div>
+          <h2 class="script-title text-glow">Birthday Memories</h2>
+          <p class="card-desc" id="memories-recipient-text">
+            <strong class="highlight-name" id="display-name-1">Esha</strong>, These are the moments that make you the
+            most beautiful person to me. Thank you for being in my life.
+          </p>
+          <div class="card-action">
+            <button class="pill-btn primary-btn glow-pulse" id="btn-to-scene-3">
+              <span>Read My Heart 💌</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="scene-section" id="scene-3">
+      <div class="scene-content split-layout letter-layout">
+
+        <div class="notebook-letter-card animate-slide-right">
+          <div class="notebook-binding"></div>
+          <div class="letter-paper">
+            <div class="letter-stamp">💌</div>
+            <div class="letter-header">
+              <h3 class="letter-salutation">My love mine Esha mine Heart😘✨❤️</h3>
+            </div>
+            <div class="letter-body" id="love-letter-content">
+              <p>Happy Birthday to the person who has quietly become one of the most beautiful parts of my life</p>
+              <p>I don’t think any “Happy Birthday” could ever be enough to explain what you mean to me. You are not
+                just someone I love. You are my best friend my comfort, my favorite person and a feeling that somehow
+                feels like home. Somewhere between our conversations, our laughter, our silly moments, our beautiful
+                memories and even the difficult days you became a part of my heart in a way I never expected.</p>
+              <p>I often wonder how one person can become so important without even realizing when it happened. But with
+                you it happened so naturally. You slowly became someone whose smile matters to me whose happiness
+                matters to me and whose presence can make an ordinary day feel special.</p>
+              <p>If I could give you one gift today I would give you the ability to see yourself through my eyes just
+                once. I wish you could see the person I see when I look at you. You would see someone incredibly
+                precious someone whose smile can brighten my entire world and someone whose existence alone has given me
+                countless beautiful memories.</p>
+              <p>The moon in me finds its sky in you. In your presence I feel complete as if every scattered piece of me
+                somehow finds its place. If I could choose one place in this entire world to be forever I think I would
+                choose wherever you are. I would dance with you hold you close and hug you until infinity because if
+                there is one place where my heart feels at peace it is close to you.</p>
+              <p>Life is yours and death is mine.<br>Peace is yours and stress is mine.<br>Happiness is yours and sorrow
+                is mine.<br>Everything beautiful is yours…<br>but you are mine. ❤️</p>
+              <p>And no matter how much life changes around us I hope you always remember that some people become a
+                permanent part of your story. You are one of those people for me. Distance circumstances time and
+                everything life brings may change many things but they cannot erase the memories we have created or the
+                place you have made for yourself in my heart.</p>
+              <p>On your birthday I don’t just wish you happiness for today. I wish you a lifetime filled with reasons
+                to smile. I wish you peaceful mornings beautiful surprises dreams that come true and people who remind
+                you every day how precious you are. I hope life is gentle with your heart. I hope you achieve everything
+                you secretly wish for. And whenever life feels heavy I hope you remember that you are stronger than you
+                think and far more loved than you realize.</p>
+              <p class="love-emphasis">Thank you for being Esha.</p>
+              <p>Thank you for every smile.<br>Thank you for every conversation.<br>Thank you for every little moment
+                that became special simply because you were there.<br>Thank you for becoming one of the most beautiful
+                chapters of my life.</p>
+              <p>And most of all…</p>
+              <p>Thank you for being born.<br>Thank you for existing in this world.<br>Thank you for finding your way
+                into my life.<br>And thank you for letting me love you. ❤️</p>
+              <p>As you turn another year older I hope you know that somewhere in this world there is someone who is
+                genuinely grateful that you were born on this day.</p>
+              <p>Someone who looks at your happiness and feels happy.<br>Someone who remembers the little things about
+                you.<br>Someone who carries your memories in his heart.<br>Someone who will always be grateful for
+                having known you.</p>
+              <p class="love-emphasis">My love… my favorite person… my beautiful Esha…</p>
+              <p>May you always be happy even on the days when I’m not there to make you smile.</p>
+              <p>And if life ever makes you forget how loved you are then come back to this little page and read these
+                words again.</p>
+              <p>Maybe I will never find words powerful enough to explain everything I feel for you. Maybe no letter
+                could ever hold the depth of it.</p>
+              <p>But if there is one thing I hope you understand today it is this:</p>
+              <p>You are deeply loved.<br>You are incredibly precious.<br>And you will always have a very special place
+                in my heart. ❤️</p>
+              <p class="love-emphasis">Happy Birthday, jan e jahan🎂❤️</p>
+              <p>The moon in me will always find its sky in you.</p>
+            </div>
+            <div class="letter-footer">
+              <span class="letter-sign" id="letter-signature">— From someone who loves you more than words can ever
+                explain. ❤️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Glass Card -->
+        <div class="glass-card letter-info-card animate-slide-left">
+          <div class="card-sparkle">💖</div>
+          <h2 class="script-title text-glow">A Love Note</h2>
+          <p class="card-desc">
+            A few words from the bottom of my heart. Every word here is true, written just for you.
+          </p>
+          <div class="card-action">
+            <button class="pill-btn primary-btn glow-pulse" id="btn-to-scene-4">
+              <span>Let's Play a Game! 🎮</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SCENE 4: WHY YOU'RE SPECIAL (3x3 FLIP CARDS) ==================== -->
+    <section class="scene-section" id="scene-4">
+      <div class="scene-content center-layout">
+        <!-- Top Title Card -->
+        <div class="glass-card special-header-card animate-fade-down">
+          <div class="title-with-icon">
+            <h2 class="script-title text-glow">Why You're Special 🎂</h2>
+          </div>
+          <p class="card-subtitle">Click on the cards to reveal why you're the best!</p>
+          <div class="game-progress-bar">
+            <div class="progress-fill" id="special-progress-fill"></div>
+            <span class="progress-label" id="special-progress-label">0 of 9 Revealed</span>
+          </div>
+        </div>
+
+        <!-- 3x3 Interactive Grid of 9 Cards -->
+        <div class="special-cards-grid" id="special-grid">
+          <!-- Card 1 -->
+          <div class="flip-card" data-id="1">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">🎂</div>
+                <p class="reason-text">You make every day feel like a celebration</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flip-card" data-id="2">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">😄</div>
+                <p class="reason-text">Your laugh is my favorite sound in the universe</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flip-card" data-id="3">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">🌟</div>
+                <p class="reason-text">You inspire me to be a better person every single day</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flip-card" data-id="4">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">🧸</div>
+                <p class="reason-text">Your warm hugs can instantly cure any bad day</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="flip-card" data-id="5">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">☕</div>
+                <p class="reason-text">The way your eyes light up when you're truly happy</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="flip-card" data-id="6">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">💫</div>
+                <p class="reason-text">You are my safe space, my peace, and my home</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="flip-card" data-id="7">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">🌸</div>
+                <p class="reason-text">Your kindness and pure heart amaze me continuously</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="flip-card" data-id="8">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">🌙</div>
+                <p class="reason-text">You turn even the ordinary moments into magic</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="flip-card" data-id="9">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span class="question-mark">?</span>
+                <span class="card-glow-dot"></span>
+              </div>
+              <div class="flip-card-back">
+                <div class="reason-icon">💖</div>
+                <p class="reason-text">Loving you is the easiest & best thing I've ever done</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Action Button -->
+        <div class="special-action-wrap">
+          <button class="pill-btn primary-btn glow-pulse" id="btn-to-scene-5">
+            <span>Next 💕</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SCENE 5: FINAL HAPPY BIRTHDAY SCREEN ==================== -->
+    <section class="scene-section" id="scene-5">
+      <div class="scene-content split-layout final-layout">
+        <!-- Left Visual Couple Romance (Animated Kiss Sequence) -->
+        <div class="visual-card final-visual animate-slide-right">
+          <div class="image-frame glow-border float-anim final-animated-frame" id="final-animated-frame">
+            <div class="kiss-layers-wrapper">
+              <img src="assets/kiss_frame_1.jpg" alt="Couple gazing under starry sky" class="kiss-frame frame-1 active" id="kiss-f1">
+              <img src="assets/kiss_frame_2.jpg" alt="Couple leaning in close" class="kiss-frame frame-2" id="kiss-f2">
+              <img src="assets/kiss_frame_3.jpg" alt="Romantic anime kiss under stars" class="kiss-frame frame-3" id="kiss-f3">
+            </div>
+            <div class="kiss-hearts-container" id="kiss-hearts-container"></div>
+            <div class="image-overlay-glow"></div>
+            <div class="corner-heart top-right">⭐</div>
+            <div class="corner-heart bottom-left">🩵</div>
+          </div>
+        </div>
+
+        <!-- Right Glassmorphism Card -->
+        <div class="glass-card final-info-card animate-slide-left">
+          <div class="card-sparkle">🎂</div>
+          <h2 class="script-title text-glow">جنم دن مبارک میری محبت 🎂</h2>
+          <div class="card-desc urdu-note-container" dir="rtl">
+            <p>
+              آپ وہ ہو جس کے ہونے سے مجھے اپنے وجود کے مکمل ہونے کا احساس ہوتا ہے آپ میرے لیے صرف ایک خوبصورت رشتہ نہیں، بلکہ میری زندگی کا وہ حصہ ہو جس کے بغیر باقی سب کچھ ہوتے ہوئے بھی ایک کمی سی رہ جاتی ہے۔ آپ ساتھ ہو تو دل کو کسی یقین کی ضرورت نہیں رہتی، اور آپ قریب ہو تو دنیا کی بہت سی الجھنیں خود بخود بے معنی لگنے لگتی ہیں🥹
+            </p>
+            <p>
+              آپ کا ہونا میرے لیے اس سکون کی مانند ہے جو ایک تھکے ہوئے مسافر کو لمبے سفر کے بعد کسی سایہ دار درخت کے نیچے بیٹھ کر ملتا ہے آپ کی آواز میں ایک عجیب سا اطمینان ہےآپ کی موجودگی میں ایک ایسی اپنائیت ہے جسے لفظوں میں سمیٹنا شاید ممکن ہی نہیں 🥲آپ کا سایہ بھی میرے لیے کسی جنت سے کم نہیں کیونکہ اس سائے میں مجھے دنیا کی دھوپ کم محسوس ہوتی ہے 🥺
+            </p>
+            <p>
+              میں نے زندگی میں بہت سے لوگوں کو دیکھا، بہت سے چہرے ملے، بہت سے رشتے بنے، مگر آپ کے جیسا کوئی نہیں ملا آپکے ساتھ مجھے یہ احساس ہوا کہ کسی انسان کا زندگی میں ہونا بھی کبھی کبھی پوری دنیا کے برابر ہو جاتا ہے آپ وہ ہو جس سے بات نہ بھی ہو تو دل کو کسی کی موجودگی کا اطمینان رہتا ہے اور آپ کی دی گئی توجہ میرا دن بنا دیتی ہے شاید محبت کا سب سے خوبصورت پہلو یہی ہے کہ انسان کسی دوسرے کے وجود میں اپنا سکون تلاش کرنے لگتا ہے۔ میرے لیے وہ سکون آپ ہو ہو آپ میرے پاس رہو یا مجھ سے فاصلے پر، میرے دل میں آپکی جگہ وہی رہے گی کیونکہ کچھ لوگ فاصلے سے دور نہیں ہوتے، بلکہ دل میں اور بھی قریب اتر جاتے ہیں بس اتنا سمجھ لو کہ آپ میرے لیے وہ ہو جس کے ہونے سے زندگی، زندگی محسوس ہوتی ہے تم ہو تو دل کو لگتا ہے 🥰😇😌کہ میرے پاس بہت کچھ ہے، اور تم نہ ہو تو سب کچھ ہوتے ہوئے بھی کچھ نہیں اگر کبھی مجھ سے پوچھا جائے کہ میری خوشی کہاں رہتی ہے تو شاید میں کسی جگہ، کسی چیز یا کسی خواب کا نام نہ لوں؛ بس تمہاری طرف دیکھ کر کہوں گا 🫣یہاں... میری خوشی یہاں رہتی ہے
+              🥺✨🫀
+            </p>
+          </div>
+          <div class="card-action">
+            <button class="pill-btn secret-btn glow-pulse" id="btn-to-scene-6">
+              <span>One Last Secret 🔒</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SCENE 6: ONE SECRET LEFT (PASSCODE KEYPAD) ==================== -->
+    <section class="scene-section" id="scene-6">
+      <div class="scene-content center-layout passcode-layout">
+        <!-- Floating 3D Gift Box -->
+        <div class="gift-box-wrapper">
+          <img src="assets/gift_box.png" alt="Mystery Gift Box" class="gift-box-img" id="secret-gift-box">
+          <div class="gift-glow"></div>
+        </div>
+
+        <!-- Passcode Glass Card -->
+        <div class="glass-card keypad-card animate-fade-down" id="keypad-card">
+          <h2 class="script-title text-glow">One Secret Left</h2>
+          <p class="card-subtitle">Enter the secret code to unlock the last surprise.</p>
+
+          <!-- 4 PIN Dots -->
+          <div class="pin-dots-container" id="pin-dots-container">
+            <span class="pin-dot" data-idx="0"></span>
+            <span class="pin-dot" data-idx="1"></span>
+            <span class="pin-dot" data-idx="2"></span>
+            <span class="pin-dot" data-idx="3"></span>
+          </div>
+
+          <!-- Error / Try Again Status -->
+          <div class="pin-status-message" id="pin-status"></div>
+
+          <!-- Numeric Keypad Grid -->
+          <div class="numpad-grid">
+            <button type="button" class="num-key" data-key="1">1</button>
+            <button type="button" class="num-key" data-key="2">2</button>
+            <button type="button" class="num-key" data-key="3">3</button>
+
+            <button type="button" class="num-key" data-key="4">4</button>
+            <button type="button" class="num-key" data-key="5">5</button>
+            <button type="button" class="num-key" data-key="6">6</button>
+
+            <button type="button" class="num-key" data-key="7">7</button>
+            <button type="button" class="num-key" data-key="8">8</button>
+            <button type="button" class="num-key" data-key="9">9</button>
+
+            <button type="button" class="num-key action-key" data-key="backspace" title="Delete" aria-label="Backspace">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+                <line x1="18" y1="9" x2="12" y2="15"></line>
+                <line x1="12" y1="9" x2="18" y2="15"></line>
+              </svg>
+            </button>
+            <button type="button" class="num-key" data-key="0">0</button>
+            <button type="button" class="num-key action-key enter-key" data-key="enter" title="Submit"
+              aria-label="Enter">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 10 4 15 9 20"></polyline>
+                <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Hint toggle -->
+          <div class="pin-hint-wrap">
+            <button type="button" class="hint-toggle-btn" id="btn-show-hint">💡 Need a hint?</button>
+            <p class="pin-hint-text hidden" id="pin-hint-display">Hint: Try 1010 ❤️</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== MODAL: ONE LAST SECRET & CELEBRATION ==================== -->
+  <div class="modal-backdrop" id="secret-modal">
+    <div class="modal-box secret-box">
+      <button class="modal-close-btn" id="close-secret-btn" aria-label="Close modal">×</button>
+
+      <div class="secret-content">
+        <div class="secret-sparkles">🎉 ✨ 🎂 💖 ✨ 🎉</div>
+        <h2 class="script-title text-glow modal-title">Make A Birthday Wish!</h2>
+        <p class="modal-subtitle">Tap the candle on the cake to blow it out and unlock your wish!</p>
+
+        <!-- Interactive Birthday Cake with Blowable Candle -->
+        <div class="cake-container" id="birthday-cake" title="Click to blow out the candle!">
+          <div class="cake">
+            <div class="plate"></div>
+            <div class="layer layer-bottom"></div>
+            <div class="layer layer-middle"></div>
+            <div class="layer layer-top"></div>
+            <div class="icing"></div>
+            <div class="drip drip1"></div>
+            <div class="drip drip2"></div>
+            <div class="drip drip3"></div>
+            <!-- Candle -->
+            <div class="candle">
+              <div class="flame" id="cake-flame"></div>
+              <div class="smoke" id="candle-smoke"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wish-status" id="wish-status">
+          <span class="status-badge">🕯️ Candle is burning... Tap the candle to blow it out!</span>
+        </div>
+
+        <!-- Hidden Sweet Message Revealed Upon Blowing Out Candle -->
+        <div class="revealed-promise hidden" id="revealed-promise">
+          <div class="promise-card">
+            <h3>My Forever Promise To You 💍</h3>
+            <p>
+              "No matter how far apart we are, or how many years go by, my heart will always beat for you. You are my
+              today, my tomorrow, and my happily ever after."
+            </p>
+            <div class="love-counter-box">
+              <span class="counter-label">Days Loving You:</span>
+              <span class="counter-value" id="days-counter">Infinity & Beyond ∞</span>
+            </div>
+          </div>
+          <div class="celebration-actions">
+            <button class="pill-btn primary-btn" id="btn-replay-journey">
+              <span>Replay Our Journey 💫</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: PHOTO LIGHTBOX ==================== -->
+  <div class="modal-backdrop" id="lightbox-modal">
+    <div class="lightbox-box">
+      <button class="modal-close-btn" id="close-lightbox-btn" aria-label="Close lightbox">×</button>
+      <div class="lightbox-image-wrap">
+        <img src="" alt="Memory Preview" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption">Our Special Memory</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: CUSTOMIZE NAMES & TEXT ==================== -->
+  <div class="modal-backdrop" id="customizer-modal">
+    <div class="modal-box customizer-box">
+      <button class="modal-close-btn" id="close-customizer-btn" aria-label="Close customizer">×</button>
+      <h2 class="script-title text-glow">Personalize Your Gift 🎁</h2>
+      <p class="modal-subtitle">Easily change names, greeting, and signature!</p>
+
+      <form id="customizer-form" class="customizer-form">
+        <div class="form-group">
+          <label for="input-recipient-name">Partner's Name:</label>
+          <input type="text" id="input-recipient-name" value="Esha" placeholder="e.g. Esha...">
+        </div>
+
+        <div class="form-group">
+          <label for="input-sender-signature">Sender Signature:</label>
+          <input type="text" id="input-sender-signature" value="Your Hubby" placeholder="e.g. Your Hubby, Alex...">
+        </div>
+
+        <div class="form-group">
+          <label for="input-welcome-title">Welcome Title:</label>
+          <input type="text" id="input-welcome-title" value="Happy Birthday Esha"
+            placeholder="e.g. Happy Birthday Esha...">
+        </div>
+
+        <div class="form-group">
+          <label for="input-secret-passcode">Secret Code (4 digits):</label>
+          <input type="text" id="input-secret-passcode" value="1234" maxlength="4" placeholder="e.g. 1234, 2024...">
+        </div>
+
+        <div class="form-group">
+          <label for="input-passcode-hint">Passcode Hint for Her:</label>
+          <input type="text" id="input-passcode-hint" value="Hint: Try 1234 or your special day!"
+            placeholder="e.g. Our anniversary date, your birth year...">
+        </div>
+
+        <div class="form-group">
+          <label for="input-letter-text">Love Letter Body:</label>
+          <textarea id="input-letter-text"
+            rows="5">Happy Birthday meri jaan Esha ❤️🎂 Aaj ka din meri life ke sab se special dino m sy ek hai, woh insaan jo meri zindagi ko itna khoobsurat bana deta hai. Ap sirf meri partner nahi ho, Ap meri khushi ho 🥰❤️, mera skoon ho, aur meri har dua ka sab se haseen jawab ho 🤲🏻🌹. Main bas yeh chahta hoon ke Allah Apko hamesha khush rakhy 🥰✨, har gham se door rakhy ✨. Thank you for being in my life, for loving me 💌, aur mujhe itna special feel karane ke liye ❤️ I LOVE YOUUUUU SOO MUCCH 🫶🏻</textarea>
+        </div>
+
+        <div class="photo-guide-card">
+          <h4>🖼️ How to Change Photos</h4>
+          <p>Put your own images in the <code>assets/</code> folder with names: <code>hero_girl.jpg</code>,
+            <code>memory_1.jpg</code> to <code>memory_6.jpg</code>, and <code>couple_final.jpg</code>!
+          </p>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="pill-btn primary-btn">
+            <span>Save & Apply Changes ✨</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: SHARE & QR CODE ==================== -->
+  <div class="modal-backdrop" id="share-modal">
+    <div class="modal-box share-box">
+      <button class="modal-close-btn" id="close-share-btn" aria-label="Close share modal">×</button>
+      <div class="secret-sparkles">💖 ✨ 📲 ✨ 💖</div>
+      <h2 class="script-title text-glow">Share The Surprise!</h2>
+      <p class="modal-subtitle">Generate a live QR Code or copy your website link to send to her!</p>
+
+      <div class="qr-container">
+        <div class="qr-code-wrapper" id="qr-code-wrapper">
+          <img id="qr-code-img" src="" alt="Birthday QR Code" loading="lazy">
+        </div>
+        <p class="qr-caption">Scan with mobile camera to open instantly 📸</p>
+      </div>
+
+      <div class="share-url-box">
+        <input type="text" id="share-url-input" value=""
+          placeholder="Paste your live URL here (e.g. https://your-site.netlify.app)">
+        <button type="button" class="copy-link-btn" id="btn-copy-link">Copy 📋</button>
+      </div>
+      <div class="copy-success-msg hidden" id="copy-success-msg">Copied to clipboard! ✨</div>
+
+      <div class="deploy-guide-summary">
+        <h4>🚀 Put It Live In 10 Seconds (Free Domain):</h4>
+        <ol>
+          <li>Open <a href="https://app.netlify.com/drop" target="_blank"
+              rel="noopener"><strong>app.netlify.com/drop</strong></a> in your browser.</li>
+          <li>Drag and drop your <strong>Birthday</strong> folder into the upload box.</li>
+          <li>Netlify will give you a free live URL (e.g. <code>https://happy-birthday-esha.netlify.app</code>).</li>
+          <li>Paste that URL here to automatically generate a scannable QR code!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

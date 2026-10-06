@@ -1,0 +1,16 @@
+{
+  "name": "birthday-surprise",
+  "version": "1.0.0",
+  "description": "Romantic Birthday Surprise Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gifencoder": "^2.0.1",
+    "jpeg-js": "^0.4.4"
+  }
+}
