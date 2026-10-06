@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "index.js": {
+      "includeFiles": "assets/**,style.css,script.js,index.html"
+    }
+  }
+}
