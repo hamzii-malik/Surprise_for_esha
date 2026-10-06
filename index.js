@@ -23,6 +23,16 @@ const handler = (req, res) => {
     const decoded = decodeURI(rawUrl.split('?')[0]);
     let cleanPath = decoded.replace(/^\/+/, '');
     if (cleanPath === '') cleanPath = 'index.html';
+    if (cleanPath === 'api/debug') {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+        __dirname,
+        cwd: process.cwd(),
+        dirFiles: fs.readdirSync(__dirname),
+        cwdFiles: fs.existsSync(process.cwd()) ? fs.readdirSync(process.cwd()) : []
+      }));
+    }
+
     const safePath = path.normalize(cleanPath).replace(/^(\.\.[\/\\])+/, '');
     const filePath = path.join(__dirname, safePath);
 
