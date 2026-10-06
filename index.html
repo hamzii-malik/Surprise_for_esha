@@ -662,6 +662,17 @@
   <!-- Confetti Canvas -->
   <canvas id="confetti-canvas"></canvas>
 
+  <!-- Background Music Audio Element -->
+  <audio id="bg-music" src="assets/music.mp3" loop preload="auto"></audio>
+
+  <!-- Floating Music Toggle (Bottom-Right, Glassmorphism) -->
+  <button id="floating-music-btn" class="floating-music-btn" title="Click to Play/Pause Music" aria-label="Toggle Background Music">
+    <span class="music-note-icon">🎵</span>
+    <span class="music-wave-bars" id="music-wave-bars">
+      <span></span><span></span><span></span>
+    </span>
+  </button>
+
   <script src="script.js"></script>
 </body>
 

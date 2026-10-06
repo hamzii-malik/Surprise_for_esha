@@ -896,72 +896,55 @@ The moon in me will always find its sky in you.`;
     });
   }
 
-  // Romantic Lofi Melody Loop (Synthesized gentle music box / acoustic bells)
-  const melodyNotes = [
-    // Canon-like calming sweet sequence
-    { note: 523.25, dur: 0.5 }, // C5
-    { note: 659.25, dur: 0.5 }, // E5
-    { note: 783.99, dur: 0.6 }, // G5
-    { note: 659.25, dur: 0.4 }, // E5
-    { note: 880.00, dur: 0.7 }, // A5
-    { note: 783.99, dur: 0.5 }, // G5
-    { note: 659.25, dur: 0.5 }, // E5
-    { note: 587.33, dur: 0.8 }, // D5
-    { note: 523.25, dur: 0.5 }, // C5
-    { note: 587.33, dur: 0.5 }, // D5
-    { note: 659.25, dur: 0.6 }, // E5
-    { note: 523.25, dur: 0.8 }  // C5
-  ];
+  // ==================== BACKGROUND ROMANTIC MP3 AUDIO ====================
+  const bgMusic = document.getElementById('bg-music');
+  const floatingMusicBtn = document.getElementById('floating-music-btn');
 
-  let melodyStep = 0;
-  function startRomanticMelody() {
-    state.musicPlaying = true;
-    const waves = document.getElementById('music-waves');
-    if (waves) waves.classList.add('playing');
-
-    getAudioContext();
-
-    function playNextMelodyNote() {
-      if (!state.musicPlaying) return;
-      const current = melodyNotes[melodyStep % melodyNotes.length];
-      playTone(current.note, current.dur * 0.9, 'sine', 0.04);
-      // Soft bass accompaniment on root notes
-      if (melodyStep % 4 === 0) {
-        playTone(current.note / 2, 0.8, 'triangle', 0.03);
-      }
-      melodyStep++;
-      state.melodyInterval = setTimeout(playNextMelodyNote, current.dur * 900);
+  function playBackgroundMusic() {
+    if (!bgMusic) return;
+    bgMusic.volume = 0.8;
+    const playPromise = bgMusic.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        state.musicPlaying = true;
+        if (floatingMusicBtn) floatingMusicBtn.classList.add('playing');
+      }).catch(err => {
+        console.log('Autoplay waiting for user gesture:', err);
+      });
     }
-    playNextMelodyNote();
   }
 
-  function stopRomanticMelody() {
+  function pauseBackgroundMusic() {
+    if (!bgMusic) return;
+    bgMusic.pause();
     state.musicPlaying = false;
-    const waves = document.getElementById('music-waves');
-    if (waves) waves.classList.remove('playing');
-    if (state.melodyInterval) {
-      clearTimeout(state.melodyInterval);
-      state.melodyInterval = null;
+    if (floatingMusicBtn) floatingMusicBtn.classList.remove('playing');
+  }
+
+  function toggleBackgroundMusic() {
+    if (state.musicPlaying) {
+      pauseBackgroundMusic();
+    } else {
+      playBackgroundMusic();
     }
   }
 
-  const musicToggleBtn = document.getElementById('music-toggle-btn');
-  if (musicToggleBtn) {
-    musicToggleBtn.addEventListener('click', () => {
-      if (state.musicPlaying) {
-        stopRomanticMelody();
-      } else {
-        startRomanticMelody();
-      }
+  if (floatingMusicBtn) {
+    floatingMusicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleBackgroundMusic();
     });
   }
 
-  // Auto-play romantic melody on first user interaction anywhere
-  document.addEventListener('click', function startMusicOnce() {
+  // Auto-play music on first user touch/click anywhere on page
+  const startMusicEvents = ['click', 'touchstart', 'pointerdown'];
+  function onFirstInteraction() {
     if (!state.musicPlaying) {
-      startRomanticMelody();
+      playBackgroundMusic();
     }
-  }, { once: true });
+    startMusicEvents.forEach(evt => document.removeEventListener(evt, onFirstInteraction));
+  }
+  startMusicEvents.forEach(evt => document.addEventListener(evt, onFirstInteraction, { passive: true }));
 
   // ==================== ROMANTIC BACK HUG STORY MOTION CONTROLLER ====================
   function initBackHugStoryAnimation() {
