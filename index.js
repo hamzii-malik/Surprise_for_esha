@@ -25,11 +25,12 @@ const handler = (req, res) => {
     if (cleanPath === '') cleanPath = 'index.html';
     if (cleanPath === 'api/debug') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
+      const assetsDir = path.join(__dirname, 'assets');
       return res.end(JSON.stringify({
         __dirname,
         cwd: process.cwd(),
         dirFiles: fs.readdirSync(__dirname),
-        cwdFiles: fs.existsSync(process.cwd()) ? fs.readdirSync(process.cwd()) : []
+        assetsFiles: fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : []
       }));
     }
 
@@ -37,10 +38,31 @@ const handler = (req, res) => {
     const filePath = path.join(__dirname, safePath);
 
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+      const stat = fs.statSync(filePath);
       const ext = path.extname(filePath).toLowerCase();
       const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+      const range = req.headers.range;
+
+      if (range && ext === '.mp3') {
+        const parts = range.replace(/bytes=/, '').split('-');
+        const start = parseInt(parts[0], 10);
+        const end = parts[1] ? parseInt(parts[1], 10) : stat.size - 1;
+        const chunksize = (end - start) + 1;
+        const file = fs.createReadStream(filePath, { start, end });
+        res.writeHead(206, {
+          'Content-Range': `bytes ${start}-${end}/${stat.size}`,
+          'Accept-Ranges': 'bytes',
+          'Content-Length': chunksize,
+          'Content-Type': contentType,
+          'Access-Control-Allow-Origin': '*'
+        });
+        return file.pipe(res);
+      }
+
       res.writeHead(200, {
         'Content-Type': contentType,
+        'Content-Length': stat.size,
+        'Accept-Ranges': 'bytes',
         'Cache-Control': 'public, max-age=3600',
         'Access-Control-Allow-Origin': '*'
       });
