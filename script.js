@@ -85,6 +85,7 @@ The moon in me will always find its sky in you.`;
   const storedSign = localStorage.getItem('bday_signature');
   if (!storedSign || storedSign === 'Your Hubby' || storedSign.includes('Hubby')) {
     localStorage.setItem('bday_signature', defaultSignature);
+  }
   localStorage.setItem('bday_passcode', '1010');
   localStorage.setItem('bday_passcode_hint', 'Hint: Try 1010 ❤️');
 
