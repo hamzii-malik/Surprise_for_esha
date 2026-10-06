@@ -1,0 +1,11 @@
+{
+  "name": "surprise-for-esha",
+  "version": "1.0.0",
+  "description": "Romantic Birthday Surprise Website",
+  "scripts": {
+    "build": "echo 'Build complete'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
