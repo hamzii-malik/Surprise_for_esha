@@ -19,11 +19,9 @@ const MIME_TYPES = {
 
 const handler = (req, res) => {
   try {
-    let urlPath = decodeURI(req.url.split('?')[0]);
-    if (urlPath === '/' || urlPath === '') {
-      urlPath = '/index.html';
-    }
-    const safePath = path.normalize(urlPath).replace(/^(\.\.[\/\\])+/, '');
+    let cleanPath = urlPath.replace(/^\/+/, '');
+    if (cleanPath === '') cleanPath = 'index.html';
+    const safePath = path.normalize(cleanPath).replace(/^(\.\.[\/\\])+/, '');
     const filePath = path.join(__dirname, safePath);
 
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
