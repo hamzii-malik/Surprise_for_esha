@@ -839,62 +839,11 @@ The moon in me will always find its sky in you.`;
     playCelebrationFanfare();
   }
 
-  // ==================== WEB AUDIO API (ROMANTIC MELODY & SOUND FX) ====================
-  function getAudioContext() {
-    if (!state.audioCtx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      state.audioCtx = new AudioContext();
-    }
-    if (state.audioCtx.state === 'suspended') {
-      state.audioCtx.resume();
-    }
-    return state.audioCtx;
-  }
-
-  function playTone(freq, duration, type = 'sine', volume = 0.08) {
-    try {
-      const ctx = getAudioContext();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-
-      osc.type = type;
-      osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-      gain.gain.setValueAtTime(volume, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
-
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start();
-      osc.stop(ctx.currentTime + duration);
-    } catch (e) {
-      // Audio might be blocked until gesture
-    }
-  }
-
-  function playCardSparkle() {
-    const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
-    notes.forEach((freq, i) => {
-      setTimeout(() => playTone(freq, 0.25, 'sine', 0.05), i * 65);
-    });
-  }
-
-  function playCelebrationFanfare() {
-    const notes = [
-      { f: 523.25, d: 0.15 }, // C5
-      { f: 659.25, d: 0.15 }, // E5
-      { f: 783.99, d: 0.2 },  // G5
-      { f: 1046.50, d: 0.4 }, // C6
-      { f: 880.00, d: 0.2 },  // A5
-      { f: 1046.50, d: 0.6 }  // C6
-    ];
-    let time = 0;
-    notes.forEach(n => {
-      setTimeout(() => playTone(n.f, n.d, 'triangle', 0.08), time);
-      time += n.d * 750;
-    });
-  }
+  // ==================== AUDIO CONFIG (ONLY MP3 PLAYS) ====================
+  // All previous synthesized beeps/chimes removed so music.mp3 plays purely
+  function playTone() {}
+  function playCardSparkle() {}
+  function playCelebrationFanfare() {}
 
   // ==================== BACKGROUND ROMANTIC MP3 AUDIO ====================
   const bgMusic = document.getElementById('bg-music');
