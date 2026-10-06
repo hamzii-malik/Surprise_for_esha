@@ -19,7 +19,9 @@ const MIME_TYPES = {
 
 const handler = (req, res) => {
   try {
-    let cleanPath = urlPath.replace(/^\/+/, '');
+    const rawUrl = req.url || '/';
+    const decoded = decodeURI(rawUrl.split('?')[0]);
+    let cleanPath = decoded.replace(/^\/+/, '');
     if (cleanPath === '') cleanPath = 'index.html';
     const safePath = path.normalize(cleanPath).replace(/^(\.\.[\/\\])+/, '');
     const filePath = path.join(__dirname, safePath);
